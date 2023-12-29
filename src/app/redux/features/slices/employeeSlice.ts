@@ -20,7 +20,7 @@ interface EmployeesState {
 // Fetch Employees
 export const fetchEmployees = createAsyncThunk('employees/getAllEmployees', async (thunkAPI) => {
     const response = await axios.get(
-        `http://localhost:8080/employee`,
+        `${process.env.NEXT_PUBLIC_API_BASE_URL}employee`,
         {
             headers: {
                 Authorization: `Bearer ${process.env.NEXT_PUBLIC_API_KEY}`,
@@ -36,7 +36,7 @@ export const fetchEmployees = createAsyncThunk('employees/getAllEmployees', asyn
 // Add new employee
 export const addEmployee = createAsyncThunk('employees/addEmployee', async (employeeData: any) => {
     const response = await axios.post(
-        `http://localhost:8080/employee`,
+        `${process.env.NEXT_PUBLIC_API_BASE_URL}employee`,
         employeeData,
         {
             headers: {
@@ -52,7 +52,7 @@ export const addEmployee = createAsyncThunk('employees/addEmployee', async (empl
 // update an existing employee
 export const updateEmployee = createAsyncThunk('employees/updateEmployee', async (employeeData: any) => {
     const response = await axios.put(
-        `http://localhost:8080/employee/${employeeData.id}`,
+        `${process.env.NEXT_PUBLIC_API_BASE_URL}employee/${employeeData.id}`,
         employeeData,
         {
             headers: {
@@ -68,7 +68,7 @@ export const updateEmployee = createAsyncThunk('employees/updateEmployee', async
 // Delete an existing employee
 export const deleteEmployee = createAsyncThunk('employees/deleteEmployee', async (employeeId: number) => {
     await axios.delete(
-        `http://localhost:8080/employee/${employeeId}`,
+        `${process.env.NEXT_PUBLIC_API_BASE_URL}employee/${employeeId}`,
         {
             headers: {
                 Authorization: `Bearer ${process.env.NEXT_PUBLIC_API_KEY}`,
@@ -82,7 +82,7 @@ export const deleteEmployee = createAsyncThunk('employees/deleteEmployee', async
 
 // Get single employee
 export const fetchEmployee = createAsyncThunk('employee/fetchEmployee', async (employeeId: number) => {
-    const response = await axios.get(`http://localhost:8080/employee/${employeeId}`, {
+    const response = await axios.get(`${process.env.NEXT_PUBLIC_API_BASE_URL}employee/${employeeId}`, {
         headers: {
             Authorization: `Bearer ${process.env.NEXT_PUBLIC_API_KEY}`,
         },
