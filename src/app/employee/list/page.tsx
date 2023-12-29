@@ -1,5 +1,4 @@
 'use client'
-import Card from '@/app/components/card/card'
 import Header from '@/app/components/header/header'
 import React, { useEffect, useRef, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
